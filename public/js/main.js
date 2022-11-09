@@ -18,6 +18,10 @@ let descriptionBase = localStorage.getItem('descriptionBase');
 let descriptionTampo = localStorage.getItem('descriptionTampo');
 let descriptionCadeira = localStorage.getItem('descriptionCadeira');
 
+function limpar(){
+    localStorage.clear();
+    window.location.href = '/';
+}
 
 function trocabase(img, name, description){
     localStorage.setItem('imgBase', img.src);
@@ -40,12 +44,21 @@ function trocacadeira(img, name, description){
     document.location.reload(true);
 }
 
-base.setAttribute('src', imgBase);
-tampo.setAttribute('src', imgTampo);
-cadeira.setAttribute('src', imgCadeira);
+if(imgBase){
+    base.setAttribute('src', imgBase);
+}
+if(imgTampo){
+    tampo.setAttribute('src', imgTampo);
+}
+if(imgCadeira){
+    cadeira.setAttribute('src', imgCadeira);
+}
 
 reportNameTampo.innerHTML = nameTampo;
 reportNameBase.innerHTML = nameBase;
+reportNameCadeira.innerHTML = nameCadeira;
 
 reportDescriptionTampo.innerHTML = descriptionTampo;
 reportDescriptionBase.innerHTML = descriptionBase;
+reportDescriptionCadeira.innerHTML = descriptionCadeira;
+

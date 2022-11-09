@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -12,19 +13,14 @@ h1{
 }
 
 .image-primary{
-    border: 1px solid #eee;
     border-radius: 1rem;
-    box-shadow: 4px 6px 1rem #ddd;
     padding: 2rem;
-    height: 550px;
+    max-height: 550px;
+
 }
 
 .cadeira-container{
-    position: absolute;
-    display: flex;
-    top: 30%;
-    left: 10%;
-    /* transform: translateY(-100%); */
+    transform: translateY(-60%);
 }
 
 .img-card{
@@ -47,7 +43,7 @@ h1{
 }
 
 .img-card img:hover{
-    transform: scale(1.1);
+    transform: scale(1.01);
     transition: 1s;
 
 }
@@ -55,7 +51,7 @@ h1{
 #btn-page-bases{
     position: fixed;
     width: 100px;
-    left: calc(50% - 50px);
+    right: 40px;
     bottom: 20px;
     background-color: #0C8973;
     color: #eee;
@@ -64,6 +60,14 @@ h1{
 .cards-container{
     max-height: 100vh;
     overflow-y: scroll;
+    padding-top: 1rem;
+}
+
+.btn-print{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    box-shadow: 1px 1px 2px #ddd;
 }
 
 @media(max-width: 991px){
@@ -73,8 +77,5 @@ h1{
     }
     .cards{
         display: inline-block;
-    }
-    .cards-container, .cards, .img-card{
-        margin-top: 3rem;
     }
 }

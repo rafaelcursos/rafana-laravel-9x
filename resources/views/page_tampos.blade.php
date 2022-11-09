@@ -8,7 +8,7 @@
             <h1>Personalize seu móvel!</h1>
 
             <div class="image-primary">
-                <img id="tampo" class="img-fluid " src="/img/{{ $tampo }}" alt="imagem do tampo">
+                <img id="tampo" class="img-fluid " src="/img/statics/tampo.gif" alt="imagem do tampo">
                 <img id="base" class="img-fluid " src="" alt="imagem da base">
             </div>
 

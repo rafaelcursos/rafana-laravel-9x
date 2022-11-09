@@ -33,7 +33,7 @@ class PageController extends Controller
             }
         }
 
-        return view('page_select', ['base' => $base, 'tampo' => $tampo, 'bases' => $bases, 'id' => $id]);
+        return view('/page_bases', ['base' => $base, 'tampo' => $tampo, 'bases' => $bases, 'id' => $id]);
     }
 
     public function pagetampos($id){
@@ -52,5 +52,9 @@ class PageController extends Controller
         $cadeiras = Product::where('type', '=', 'Cadeira')->get();
 
         return view('/page_cadeiras', ['cadeiras' => $cadeiras]);
+    }
+
+    public function pagereport(){
+        return view('/page_report');
     }
 }

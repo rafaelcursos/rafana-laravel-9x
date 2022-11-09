@@ -29,7 +29,7 @@
 
                                 <div class="img-card">
                                     <div class="col-6">
-                                        <img onclick="trocacadeira(this, `{{ $c->name }}`)" class="img-fluid"
+                                        <img onclick="trocacadeira(this, `{{ $c->name }}`, `{{$c->description}}`)" class="img-fluid"
                                             src="/img/{{ $image->image }}" alt="">
                                     </div>
 
@@ -49,6 +49,6 @@
 
         </div>
     </div>
-    <a id="btn-page-bases" class="btn btn-lg" href="/page_tampos">Próximo</a>
+    <a id="btn-page-bases" class="btn btn-lg" href="/page_report">Próximo</a>
     </div>
 @endsection

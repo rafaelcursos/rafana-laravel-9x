@@ -6,9 +6,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [App\Http\Controllers\PageController::class, 'index']);
-Route::get('/select/{id}', [App\Http\Controllers\PageController::class, 'pagebases']);
+Route::get('/page_bases/{id}', [App\Http\Controllers\PageController::class, 'pagebases']);
 Route::get('/page_tampos/{id}', [App\Http\Controllers\PageController::class, 'pagetampos']);
 Route::get('/page_cadeiras', [App\Http\Controllers\PageController::class, 'pagecadeiras']);
+Route::get('/page_report', [App\Http\Controllers\PageController::class, 'pagereport']);
 
 Auth::routes();
 

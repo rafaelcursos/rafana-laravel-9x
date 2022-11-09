@@ -1,29 +1,51 @@
 let base = document.getElementById('base');
 let tampo = document.getElementById('tampo');
 let cadeira = document.getElementById('cadeira');
+let reportNameTampo = document.getElementById('nametampo');
+let reportNameBase = document.getElementById('reportNameBase');
+let reportDescriptionTampo = document.getElementById('reportDescriptionTampo');
+let reportDescriptionBase = document.getElementById('reportDescriptionBase');
+
 let imgBase = localStorage.getItem('imgBase');
 let imgTampo = localStorage.getItem('imgTampo');
 let imgCadeira = localStorage.getItem('imgCadeira');
 
+let nameBase = localStorage.getItem('nameBase');
+let nameTampo = localStorage.getItem('nameTampo');
+let nameCadeira = localStorage.getItem('nameCadeira');
 
-function trocabase(img, name){
+let descriptionBase = localStorage.getItem('descriptionBase');
+let descriptionTampo = localStorage.getItem('descriptionTampo');
+let descriptionCadeira = localStorage.getItem('descriptionCadeira');
+
+
+function trocabase(img, name, description){
     localStorage.setItem('imgBase', img.src);
     localStorage.setItem('nameBase', name);
+    localStorage.setItem('descriptionBase', description);
     document.location.reload(true);
 }
 
-function trocatampo(img, name){
+function trocatampo(img, name, description){
     localStorage.setItem('imgTampo', img.src);
     localStorage.setItem('nameTampo', name);
+    localStorage.setItem('descriptionTampo', description);
     document.location.reload(true);
 }
 
-function trocacadeira(img, name){
+function trocacadeira(img, name, description){
     localStorage.setItem('imgCadeira', img.src);
     localStorage.setItem('nameCadeira', name);
+    localStorage.setItem('descriptionCadeira', description);
     document.location.reload(true);
 }
 
 base.setAttribute('src', imgBase);
 tampo.setAttribute('src', imgTampo);
 cadeira.setAttribute('src', imgCadeira);
+
+reportNameTampo.innerHTML = nameTampo;
+reportNameBase.innerHTML = nameBase;
+
+reportDescriptionTampo.innerHTML = descriptionTampo;
+reportDescriptionBase.innerHTML = descriptionBase;

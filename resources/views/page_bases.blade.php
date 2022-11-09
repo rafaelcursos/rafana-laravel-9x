@@ -26,7 +26,7 @@
 
                                 <div class="img-card">
                                     <div class="col-6">
-                                        <img onclick="trocabase(this, `{{ $b->name }}`)" class="img-fluid"
+                                        <img onclick="trocabase(this, `{{ $b->name }}`, `{{$b->description}}`)" class="img-fluid"
                                             src="/img/{{ $image->image }}" alt="">
                                     </div>
 

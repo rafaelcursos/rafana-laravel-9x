@@ -26,7 +26,7 @@
 
                                 <div class="img-card">
                                     <div class="col-6">
-                                        <img onclick="trocatampo(this, `{{ $t->name }}`)" class="img-fluid"
+                                        <img onclick="trocatampo(this, `{{ $t->name }}`, `{{$t->description}}`)" class="img-fluid"
                                             src="/img/{{ $image->image }}" alt="">
                                     </div>
 

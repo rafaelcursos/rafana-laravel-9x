@@ -23,7 +23,7 @@
 </head>
 
 <body style="background-color: #fff;">
-    <main class="py-4">
+    <main>
         @yield('content')
     </main>
 </body>

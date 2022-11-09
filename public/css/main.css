@@ -4,13 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-section{
-    height: 100vh;
-    overflow-y: hidden;
-}
-.screen{
 
-}
 h1{
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
@@ -22,6 +16,15 @@ h1{
     border-radius: 1rem;
     box-shadow: 4px 6px 1rem #ddd;
     padding: 2rem;
+    height: 550px;
+}
+
+.cadeira-container{
+    position: absolute;
+    display: flex;
+    top: 30%;
+    left: 10%;
+    /* transform: translateY(-100%); */
 }
 
 .img-card{
@@ -63,7 +66,6 @@ h1{
     overflow-y: scroll;
 }
 
-
 @media(max-width: 991px){
     .cards-container{
         overflow-x: scroll;
@@ -72,5 +74,7 @@ h1{
     .cards{
         display: inline-block;
     }
-
+    .cards-container, .cards, .img-card{
+        margin-top: 3rem;
+    }
 }

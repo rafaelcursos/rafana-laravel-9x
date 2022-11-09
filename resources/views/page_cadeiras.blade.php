@@ -8,8 +8,11 @@
             <h1>Personalize seu móvel!</h1>
 
             <div class="image-primary">
-                <img id="tampo" class="img-fluid " src="/img/{{ $tampo }}" alt="imagem do tampo">
-                <img id="base" class="img-fluid " src="/img/{{ $base }}" alt="imagem da base">
+                <img id="tampo" class="img-fluid " src="" alt="imagem do tampo">
+                <img id="base" class="img-fluid " src="" alt="imagem da base">
+                <div class="cadeira-container">
+                    <img id="cadeira" class="img-fluid " src="" alt="imagem da cadeira">
+                </div>
             </div>
 
         </div>
@@ -20,19 +23,19 @@
 
                 <div class="cards-container">
 
-                    @foreach ($bases as $b)
-                        @foreach ($b->images as $image)
+                    @foreach ($cadeiras as $c)
+                        @foreach ($c->images as $image)
                             <div class="cards">
 
                                 <div class="img-card">
                                     <div class="col-6">
-                                        <img onclick="trocabase(this, `{{ $b->name }}`)" class="img-fluid"
+                                        <img onclick="trocacadeira(this, `{{ $c->name }}`)" class="img-fluid"
                                             src="/img/{{ $image->image }}" alt="">
                                     </div>
 
                                     <div class="col-6 info">
-                                        <h3>{{ $b->name }}</h3>
-                                        <p>{{ $b->description }}</p>
+                                        <h3>{{ $c->name }}</h3>
+                                        <p>{{ $c->description }}</p>
                                     </div>
 
                                 </div>
@@ -46,6 +49,6 @@
 
         </div>
     </div>
-    <a id="btn-page-bases" class="btn btn-lg" href="/page_tampos/{{$id}}">Próximo</a>
+    <a id="btn-page-bases" class="btn btn-lg" href="/page_tampos">Próximo</a>
     </div>
 @endsection

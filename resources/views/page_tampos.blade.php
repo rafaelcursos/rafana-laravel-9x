@@ -9,7 +9,7 @@
 
             <div class="image-primary">
                 <img id="tampo" class="img-fluid " src="/img/{{ $tampo }}" alt="imagem do tampo">
-                <img id="base" class="img-fluid " src="/img/{{ $base }}" alt="imagem da base">
+                <img id="base" class="img-fluid " src="" alt="imagem da base">
             </div>
 
         </div>
@@ -20,19 +20,19 @@
 
                 <div class="cards-container">
 
-                    @foreach ($bases as $b)
-                        @foreach ($b->images as $image)
+                    @foreach ($tampos as $t)
+                        @foreach ($t->images as $image)
                             <div class="cards">
 
                                 <div class="img-card">
                                     <div class="col-6">
-                                        <img onclick="trocabase(this, `{{ $b->name }}`)" class="img-fluid"
+                                        <img onclick="trocatampo(this, `{{ $t->name }}`)" class="img-fluid"
                                             src="/img/{{ $image->image }}" alt="">
                                     </div>
 
                                     <div class="col-6 info">
-                                        <h3>{{ $b->name }}</h3>
-                                        <p>{{ $b->description }}</p>
+                                        <h3>{{ $t->name }}</h3>
+                                        <p>{{ $t->description }}</p>
                                     </div>
 
                                 </div>
@@ -46,6 +46,6 @@
 
         </div>
     </div>
-    <a id="btn-page-bases" class="btn btn-lg" href="/page_tampos/{{$id}}">Próximo</a>
+    <a id="btn-page-bases" class="btn btn-lg" href="/page_cadeiras">Próximo</a>
     </div>
 @endsection

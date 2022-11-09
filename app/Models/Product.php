@@ -9,19 +9,16 @@ class Product extends Model
 {
     use HasFactory;
 
+    public function showcases()
+    {
+        return $this->belongsToMany(Showcase::class);
+    }
+
     public function images()
     {
         return $this->belongsToMany(Image::class);
     }
 
-    public function colors()
-    {
-        return $this->belongsToMany(Color::class);
-    }
 
-    public function complements()
-    {
-        return $this->belongsToMany(Complement::class);
-    }
 
 }

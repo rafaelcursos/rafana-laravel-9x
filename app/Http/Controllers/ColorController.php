@@ -12,8 +12,8 @@ class ColorController extends Controller
     public function index()
     {
         $products = Product::all();
-
-        return view('/admin.products_color', ['products' => $products]);
+        $colors = Color::all();
+        return view('/admin.products_color', ['products' => $products, 'colors' => $colors]);
     }
 
     public function store(Request $request)

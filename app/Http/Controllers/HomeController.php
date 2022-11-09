@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Showcase;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/admin.products_insert');
+        $product = Product::all();
+        $showcase = Showcase::all();
+
+        return view('/admin.showcase_insert', ['product' => $product, 'showcase' => $showcase]);
     }
 }

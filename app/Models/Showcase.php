@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Complement extends Model
+class Showcase extends Model
 {
     use HasFactory;
 
@@ -13,4 +13,6 @@ class Complement extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+
 }

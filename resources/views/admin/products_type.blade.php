@@ -23,14 +23,14 @@
             border-radius: 10px;
             box-shadow: 4px 4px 1rem #eee;
             ">
-                <h1 class="mb-3">Cadastre uma Cor</h1>
+                <h1 class="mb-3">Cadastre um tipo de produto</h1>
 
-                <form action="/products_color" method="post" class="form-group">
+                <form action="/products_type" method="post" class="form-group">
                     @csrf
 
                     <div class="form-group">
-                        <label for="color">Nome da cor:</label>
-                        <input type="text" name="color" id="color" class="form-control">
+                        <label for="type">Tipo:</label>
+                        <input type="text" name="type" id="type" class="form-control" placeholder="Ex: Base, Tampo, ...">
                     </div><br>
 
                     <input type="submit" value="Cadastrar" class="btn btn-success">
@@ -39,8 +39,8 @@
         </div>
         <div class="col-lg-6">
             <ul>
-                @foreach($colors as $c)
-                <li>{{$c->color}}</li>
+                @foreach($types as $t)
+                <li>{{$t->type}}</li>
                 @endforeach
             </ul>
         </div>

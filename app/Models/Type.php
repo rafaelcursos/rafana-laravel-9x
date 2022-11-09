@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class Type extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,4 @@ class Image extends Model
     {
         return $this->belongsToMany(Product::class);
     }
-
-
 }

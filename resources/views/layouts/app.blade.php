@@ -37,18 +37,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/products_insert">Inserir Produto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/products_image">Imagem do Produto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/products_color">Cor do Produto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/products_complements">Complemento do Produto</a>
-                        </li>
+
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -57,12 +46,25 @@
                         </li>
                         @endif
 
+
+                        @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Produtos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/showcase_insert">Vitrine</a></li>
+                                <li><a class="dropdown-item" href="/products_insert">Itens</a></li>
+                                <li><a class="dropdown-item" href="/products_color">Nova Cor</a></li>
+                                <li><a class="dropdown-item" href="/products_type">Novo Tipo</a></li>
+                            </ul>
+                        </li>
+
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">Novo Usuário</a>
                         </li>
                         @endif
-                        @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}

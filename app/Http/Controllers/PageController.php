@@ -4,22 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\Product;
+use App\Models\Showcase;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function index()
     {
-        $products = Product::where('showcase', '=', 1)->get();
-        foreach($products as $p){
-            $image = $p->images->first();
-        }
-        return view('page_showcase', ['products' => $products, 'image' => $image]);
+
+        $showcase = Showcase::all();
+        return view('page_showcase', ['showcase' => $showcase]);
     }
 
-    public function pageSelect($id)
+    public function pagebases($id)
     {
+        $bases = Showcase::find($id)->products()->where('products.type', 'Base')->get();
+        $tampos = Showcase::find($id)->products()->where('products.type', 'Tampo')->get();
 
-        return view('page_select');
+        foreach ($tampos as $t) {
+            foreach ($t->images as $i) {
+                $tampo = $i->image;
+            }
+        }
+
+        foreach ($bases as $b) {
+            foreach ($b->images as $i) {
+                $base = $i->image;
+            }
+        }
+
+        return view('page_select', ['base' => $base, 'tampo' => $tampo, 'bases' => $bases]);
+    }
+
+    public function pagetampos(){
+        echo 'chegou aqui';
     }
 }

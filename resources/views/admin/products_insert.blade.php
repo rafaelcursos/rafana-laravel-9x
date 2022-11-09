@@ -18,7 +18,7 @@
             </div>
             @endif
 
-            <h3>Cadastre um Novo Produto</h3>
+            <h3>Cadastre um Novo Item</h3>
 
             <hr>
 
@@ -48,18 +48,47 @@
                     <label class="form-label" for="price">Preço do Produto</label>
                     <input style="max-width: 300px" type="number" step="0.01" min="0" name="price" id="price" class="form-control">
                 </div><br>
-                <div class="form-check">
-                    <input class="form-check-input" name="showcase" type="checkbox" value="1" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Este produto é de vitrine
-                    </label>
+                <div class="form-group">
+                    <label for="type" class="form-label">Tipo de produto</label>
+                    <select name="type" id="type" class="form-control">
+                        @foreach($types as $type)
+                        <option value="{{$type->type}}">{{$type->type}}</option>
+                        @endforeach
+                    </select>
                 </div><br>
                 <input class="btn btn-success" type="submit" value="Cadastrar">
             </form>
         </div>
         <div class="col-lg-6">
-            <h3>Produtos</h3>
+            <h3>Todos os itens</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Inserir</th>
+                        <th>Atualizar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($products as $p)
+                    <tr>
+                        <td>{{$p->name}}</td>
+                        <td><a class="btn btn-secondary" href="/products_image/{{$p->id}}">Imagem</a></td>
+                        <td><a class="btn btn-primary" href="/products_update/{{$p->id}}">Atualizar</a></td>
+                        <td>
+                            <form action="/products_delete/{{$p->id}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                            <button class="btn btn-danger" onclick="return confirm('Tem certeza disso?')" href="">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
+        
     </div>
 </div>
 @endsection

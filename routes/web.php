@@ -20,6 +20,7 @@ Route::get('/showcase_insert', [App\Http\Controllers\ShowcaseController::class, 
 Route::post('/showcase_insert', [App\Http\Controllers\ShowcaseController::class, 'store'])->middleware('auth');
 Route::get('/showcase_join/{id}', [App\Http\Controllers\ShowcaseController::class, 'join'])->middleware('auth');
 Route::post('/showcase_join', [App\Http\Controllers\ShowcaseController::class, 'joinStore'])->middleware('auth');
+Route::get('/showcase_remove/{show_id}/{product_id}', [App\Http\Controllers\ShowcaseController::class, 'removejoin'])->middleware('auth');
 Route::get('/showcase_update/{id}', [App\Http\Controllers\ShowcaseController::class, 'update'])->middleware('auth');
 Route::put('/showcase_update/{id}', [App\Http\Controllers\ShowcaseController::class, 'updateAction'])->middleware('auth');
 Route::delete('/showcase_delete/{id}', [App\Http\Controllers\ShowcaseController::class, 'destroy'])->middleware('auth');
@@ -35,6 +36,7 @@ Route::delete('/products_delete/{id}', [App\Http\Controllers\ProductController::
 //rotas para trabalhar com as imagens
 Route::get('/products_image/{id}', [\App\Http\Controllers\ImageController::class, 'index'])->middleware('auth');
 Route::post('/products_image/{id}', [\App\Http\Controllers\ImageController::class, 'store'])->middleware('auth');
+Route::delete('/products_image/{id}/{product_id}', [\App\Http\Controllers\ImageController::class, 'destroy'])->middleware('auth');
 
 //rotas para trabalhar com as cores
 Route::get('/products_color', [\App\Http\Controllers\ColorController::class, 'index'])->middleware('auth');

@@ -43,7 +43,7 @@
                     
                     <input type="submit" value="Associar" class="btn btn-success">
                 </form><br><hr>
-                <a href="/showcase_insert" class="link">Voltar</a>
+                <a class="btn btn-secondary" href="/showcase_insert" class="link">Voltar</a>
             </div>
         </div>
         <div class="col-lg-6">
@@ -53,7 +53,7 @@
                         <th>Item associado</th>
                         <th>Ver</th>
                         <th>Atualizar</th>
-                        <th>Deletar</th>
+                        <th>Remover</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,7 +62,7 @@
                         <td>{{$p->name}}</td>
                         <td><a href="">Ver</a></td>
                         <td><a href="" class="btn btn-primary">Atualizar</a></td>
-                        <td><a href="" class="btn btn-danger">Deletar</a></td>
+                        <td><a href="/showcase_remove/{{$showcase->id}}/{{$p->id}}" class="btn btn-warning">Remover</a></td>
                     </tr>
                     @endforeach
                 </tbody>

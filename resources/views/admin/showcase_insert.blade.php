@@ -60,7 +60,7 @@
                     @foreach($showcase as $s)
                     <tr>
                         <td>{{$s->name}}</td>
-                        <td><img width="100" src="/img/showcase/{{$s->image}}" alt="{{$s->name}}"></td>
+                        <td><img width="100" src="{{Storage::url($s->image)}}" alt="{{$s->name}}"></td>
                         <td><a class="btn btn-secondary" href="/showcase_join/{{$s->id}}">Itens</a></td>
                         <td><a class="btn btn-primary" href="/showcase_update/{{$s->id}}">Atualizar</a></td>
                         <td>

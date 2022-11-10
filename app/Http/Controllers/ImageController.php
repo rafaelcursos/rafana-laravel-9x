@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Product;
 use App\Models\Showcase;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -25,14 +26,10 @@ class ImageController extends Controller
 
             $image = new Image();
 
-            if ($request->hasfile('image') && $request->file('image')->isvalid()) {
-                $imagem = $request->image;
-                $extensao = $imagem->extension();
-                $imageName = md5($imagem->getClientOriginalName() . strtotime('now')) . '.' . $extensao;
-                $imagem->move(public_path('/img'), $imageName);
+            $imagem = $request->image;
 
-                $image->image = $imageName;
-            }
+            $imageName= $imagem->store('/', 'public');
+            $image->image = $imageName;
 
             $image->color = $request->color;
 
@@ -44,15 +41,27 @@ class ImageController extends Controller
             $prod->images()->attach(intval($img->id));
 
 
-            return redirect('/products_insert')->with('msg', 'Imagem cadastrada com sucesso');
+            return back()->with('msg', 'Imagem cadastrada com sucesso');
 
             exit;
         }
 
-        return redirect('/products_insert')->with('error', 'Preencha todos os campos');
+        return back()->with('error', 'Preencha todos os campos');
     }
 
-    public function delete($id){
-        echo $id;
+    public function destroy($id, $product_id){
+
+        $image = Image::find($id);
+        $img = $image->image;
+
+        $prod = Product::find($product_id);
+
+        $prod->images()->detach(intval($id));
+        Storage::disk('public')->delete($img);
+        $image->delete();
+
+
+
+        return back()->with('msg', 'Deletada com sucesso');
     }
 }

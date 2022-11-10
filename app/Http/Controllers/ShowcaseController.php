@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Showcase;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ShowcaseController extends Controller
 {
@@ -30,7 +31,16 @@ class ShowcaseController extends Controller
 
         $showcase->products()->attach(intval($request->product));
 
-        return redirect('/showcase_insert')->with('msg', 'Tudo certo');
+        return redirect('/showcase_join/'. $showcase->id)->with('msg', 'Tudo certo');
+    }
+
+    public function removejoin($show_id, $product_id){
+
+        $showcase = Showcase::find($show_id);
+
+        $showcase->products()->detach(intval($product_id));
+
+        return redirect('/showcase_join/'. $showcase->id)->with('msg', 'Tudo certo');
     }
 
     public function all()
@@ -47,18 +57,14 @@ class ShowcaseController extends Controller
             $showcase->name = $request->name;
             $showcase->description = $request->description;
 
-            if ($request->hasfile('image') && $request->file('image')->isvalid()) {
-                $image = $request->image;
-                $extensao = $image->extension();
-                $imageName = md5($image->getClientOriginalName() . strtotime('now')) . '.' . $extensao;
-                $image->move(public_path('/img/showcase'), $imageName);
+            $image = $request->image;
+            $imageName = $image->store('/', 'public');
 
-                $showcase->image = $imageName;
-            }
+            $showcase->image = $imageName;
 
             $showcase->save();
 
-            return redirect('/showcase_insert')->with('msg', 'Cadastrado com sucesso!');
+            return back()->with('msg', 'Cadastrado com sucesso!');
         }
 
         return redirect('/showcase_insert')->with('error', 'Preencha todos os dados');
@@ -74,35 +80,33 @@ class ShowcaseController extends Controller
     {
 
         if ($request->name && $request->description) {
-
-            $showcase = Showcase::find($id);
-
+            $showcase = new showcase();
 
             $showcase->name = $request->name;
             $showcase->description = $request->description;
 
-            if ($request->hasfile('image') && $request->file('image')->isvalid()) {
-                $image = $request->image;
-                $extensao = $image->extension();
-                $imageName = md5($image->getClientOriginalName() . strtotime('now')) . '.' . $extensao;
-                $image->move(public_path('/img/showcase/'), $imageName);
+            $image = $request->image;
+            $imageName = $image->store('/', 'public');
 
-                $showcase->image = $imageName;
-            }
+            $showcase->image = $imageName;
 
             $showcase->save();
 
-            return redirect('/showcase_insert')->with('msg', 'Atualizado com sucesso!');
+            return back()->with('msg', 'Atualizado com sucesso!');
         }
 
-        return redirect('/showcase_insert')->with('error', 'Preencha todos os dados');
+        return back()->with('error', 'Preencha todos os dados');
     }
 
     public function destroy($id)
     {
         $showcase = Showcase::find($id);
+
+        $img = $showcase->image;
+        Storage::disk('public')->delete($img);
+        
         $showcase->delete();
 
-        return redirect('/showcase_insert')->with('msg', 'Deletado com sucesso!');
+        return back()->with('msg', 'Deletado com sucesso!');
     }
 }

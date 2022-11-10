@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-5">
 
                 @if (session('msg'))
                     <div class="alert alert-success">
@@ -47,15 +47,24 @@
                         </div><br>
                         <input type="submit" value="Enviar Imagem" class="btn btn-success">
                     </form>
-                <a class="btn btn-secondary mt-5" href="/products_insert">Voltar</a>
+                    <a class="btn btn-secondary mt-5" href="/products_insert">Voltar</a>
 
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-5">
                 <h3>Imagens</h3>
                 @foreach ($product->images as $i)
-                    <div class="img-card">
-                        <img width="200" class="img-fluid" src="/img/{{ $i->image }}" alt="">
+                    <div class="d-flex  gap-3">
+                        <img width="200" class="img-fluid" src="{{Storage::url($i->image)}}" alt="">
+                        <div>
+                            <a class="btn btn-primary" href="/products_update/{{ $i->id }}">Atualizar</a>
+                        </div>
+                        <form action="/products_image/{{ $i->id }}/{{$product->id}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" onclick="return confirm('Tem certeza disso?')"
+                                href="">Deletar</button>
+                        </form>
                     </div>
                 @endforeach
             </div>

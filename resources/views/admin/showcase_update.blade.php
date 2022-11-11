@@ -29,7 +29,8 @@
 
                 <div class="form-group mb-3">
                     <label for="image" class="form-label">Selecione a imagem do Produto</label><br>
-                    <input type="file" name="image" id="image" class="form-control-file">
+                    <input type="file" name="image" id="image" class="form-control-file" value="{{$showcase->image}}">
+                    <img width="200" src="{{Storage::url($showcase->image)}}" alt="">
                 </div><br>
 
                 <input class="btn btn-success" type="submit" value="Atualizar">

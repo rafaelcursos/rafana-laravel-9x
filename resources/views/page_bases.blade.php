@@ -1,7 +1,16 @@
 @extends('layouts.pages')
 
 @section('content')
-    <div class="container">
+    <div class="container body">
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <a onclick="limpar()" href="javascript:void(0)">
+                        <img width="150" src="/img/statics/logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <hr>
+        
         <div class="row m-0">
 
             <div class="col-lg-8">
@@ -22,17 +31,14 @@
 
                         @foreach ($bases as $b)
                             @foreach ($b->images as $image)
-                                <div class="cards">
-
+                                <div onclick="trocabase(`{{Storage::url($image->image)}}`, `{{ $b->name }}`, `{{ $b->description }}`)" class="cards">
                                     <div class="img-card">
                                         <div class="col-6">
-                                            <img onclick="trocabase(this, `{{ $b->name }}`, `{{ $b->description }}`)"
-                                                class="img-fluid" src="/img/{{ $image->image }}" alt="">
+                                            <img class="img-fluid" src="{{Storage::url($image->image) }}" alt="">
                                         </div>
 
                                         <div class="col-6 info">
-                                            <h3>{{ $b->name }}</h3>
-                                            <p>{{ $b->description }}</p>
+                                            <h5>{{ $b->name }}</h5>
                                         </div>
 
                                     </div>
@@ -46,7 +52,7 @@
 
             </div>
         </div>
-        <a id="btn-page-bases" class="btn btn-lg" href="/page_tampos/{{ $id }}">Próximo</a>
+        <a class="botao-pages" href="/page_tampos/{{ $id }}">Próximo</a>
     </div>
     </div>
 @endsection

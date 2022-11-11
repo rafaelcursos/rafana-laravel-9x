@@ -25,26 +25,11 @@
 </head>
 
 <body style="background-color: #fff;">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 mt-2">
-                <a onclick="limpar()" href="javascript:void(0)">
-                    <img width="150" src="/img/statics/logo.png" alt="">
-                </a>
-            </div>
-        </div>
-        <hr>
-    </div>
+
     <main>
+
         @yield('content')
     </main>
-
-    <a href="https://wa.me/5532998083600"
-        style="position:fixed;width:60px;height:60px;bottom:40px;left:40px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888;
-      z-index:1000;"
-        target="_blank">
-        <i style="margin-top:16px" class="fa fa-whatsapp"></i>
-    </a>
 
 </body>
 

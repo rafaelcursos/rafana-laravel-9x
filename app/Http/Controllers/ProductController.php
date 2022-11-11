@@ -46,6 +46,7 @@ class ProductController extends Controller
 
     public function update($id)
     {
+
         $product = Product::find($id);
 
         $types = Type::all();

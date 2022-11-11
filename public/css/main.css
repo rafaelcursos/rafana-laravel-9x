@@ -1,29 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-h1{
+.body {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 100;
+    font-size: 2rem !important;
+    font-weight: 300 !important;
     color: #1d1d1b;
 }
 
-.image-primary{
+.showcase-card {
+    border: 0;
+    box-shadow: 2px 2px 8px #ddd;
+    padding: 1rem;
+}
+
+.showcase-card:hover {
+    transform: scale(1.05);
+    transition: 0.5s ease;
+}
+
+h3,
+a {
+    color: #1d1d1b;
+    text-decoration: none !important;
+    margin: 1rem 0 !important;
+}
+
+.image-primary {
     border-radius: 1rem;
     padding: 2rem;
     max-height: 550px;
 
 }
 
-.cadeira-container{
+.cadeira-container {
     transform: translateY(-60%);
 }
 
-.img-card{
+.img-card {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,47 +59,71 @@ h1{
     padding: 10px;
     cursor: pointer;
 }
-
-.img-card .info{
+.cards-container {
+    max-height: 100vh;
+    overflow-y: scroll;
+    padding-top: 1rem;
+    padding-bottom: 200px;
+}
+.cards{
+    margin: 1rem 0;
+}
+.img-card .info {
     border-left: 1px solid #ccc;
     margin-left: 10px;
     padding-left: 10px;
 }
-
-.img-card img:hover{
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.img-card img:hover {
     transform: scale(1.01);
     transition: 1s;
-
 }
 
-#btn-page-bases{
+.botao-pages {
     position: fixed;
     width: 100px;
     right: 40px;
-    bottom: 20px;
+    bottom: 0;
     background-color: #0C8973;
     color: #eee;
+    padding: 5px 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 1px 2px 4px #0C8973;
 }
-
-.cards-container{
-    max-height: 100vh;
-    overflow-y: scroll;
-    padding-top: 1rem;
+.botao-pages:hover{
+    color: #eee;
+    opacity: 0.9;
 }
-
-.btn-print{
+.btn-print {
     position: absolute;
     top: 20px;
-    right: 30px;
+    right: 10%;
     box-shadow: 1px 1px 2px #ddd;
 }
 
-@media(max-width: 991px){
-    .cards-container{
+.relatorio {
+    max-width: 950px;
+    margin: auto;
+}
+
+@media(max-width: 991px) {
+    .cards-container {
         overflow-x: scroll;
         white-space: nowrap;
     }
-    .cards{
+
+    .cards {
         display: inline-block;
+    }
+
+    .body {
+        height: auto;
+        overflow: scroll;
     }
 }

@@ -51,8 +51,6 @@
                 <thead>
                     <tr>
                         <th>Item associado</th>
-                        <th>Ver</th>
-                        <th>Atualizar</th>
                         <th>Remover</th>
                     </tr>
                 </thead>
@@ -60,8 +58,6 @@
                     @foreach($showcase->products as $p)
                     <tr>
                         <td>{{$p->name}}</td>
-                        <td><a href="">Ver</a></td>
-                        <td><a href="" class="btn btn-primary">Atualizar</a></td>
                         <td><a href="/showcase_remove/{{$showcase->id}}/{{$p->id}}" class="btn btn-warning">Remover</a></td>
                     </tr>
                     @endforeach

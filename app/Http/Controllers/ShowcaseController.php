@@ -26,21 +26,23 @@ class ShowcaseController extends Controller
         return view('/admin.showcase_join_product', ['products' => $products, 'showcase' => $showcase, 'colors' => $colors]);
     }
 
-    public function joinStore(Request $request){
+    public function joinStore(Request $request)
+    {
         $showcase = Showcase::find($request->showcase);
 
         $showcase->products()->attach(intval($request->product));
 
-        return redirect('/showcase_join/'. $showcase->id)->with('msg', 'Tudo certo');
+        return back()->with('msg', 'Tudo certo');
     }
 
-    public function removejoin($show_id, $product_id){
+    public function removejoin($show_id, $product_id)
+    {
 
         $showcase = Showcase::find($show_id);
 
         $showcase->products()->detach(intval($product_id));
 
-        return redirect('/showcase_join/'. $showcase->id)->with('msg', 'Tudo certo');
+        return back()->with('msg', 'Tudo certo');
     }
 
     public function all()
@@ -67,7 +69,7 @@ class ShowcaseController extends Controller
             return back()->with('msg', 'Cadastrado com sucesso!');
         }
 
-        return redirect('/showcase_insert')->with('error', 'Preencha todos os dados');
+        return back()->with('error', 'Preencha todos os dados');
     }
 
     public function update($id)
@@ -78,24 +80,21 @@ class ShowcaseController extends Controller
 
     public function updateAction(Request $request, $id)
     {
+        $showcase = Showcase::find($id);
 
-        if ($request->name && $request->description) {
-            $showcase = new showcase();
+        $showcase->name = $request->name;
+        $showcase->description = $request->description;
 
-            $showcase->name = $request->name;
-            $showcase->description = $request->description;
-
+        if ($request->image) {
+            Storage::disk('public')->delete($showcase->image);
             $image = $request->image;
             $imageName = $image->store('/', 'public');
-
             $showcase->image = $imageName;
-
-            $showcase->save();
-
-            return back()->with('msg', 'Atualizado com sucesso!');
         }
 
-        return back()->with('error', 'Preencha todos os dados');
+        $showcase->save();
+
+        return redirect('/showcase_insert')->with('msg', 'Atualizado com sucesso!');
     }
 
     public function destroy($id)
@@ -104,7 +103,7 @@ class ShowcaseController extends Controller
 
         $img = $showcase->image;
         Storage::disk('public')->delete($img);
-        
+
         $showcase->delete();
 
         return back()->with('msg', 'Deletado com sucesso!');

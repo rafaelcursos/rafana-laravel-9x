@@ -56,9 +56,6 @@
                 @foreach ($product->images as $i)
                     <div class="d-flex  gap-3">
                         <img width="200" class="img-fluid" src="{{Storage::url($i->image)}}" alt="">
-                        <div>
-                            <a class="btn btn-primary" href="/products_update/{{ $i->id }}">Atualizar</a>
-                        </div>
                         <form action="/products_image/{{ $i->id }}/{{$product->id}}" method="post">
                             @csrf
                             @method('DELETE')

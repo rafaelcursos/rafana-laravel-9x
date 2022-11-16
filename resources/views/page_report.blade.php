@@ -45,7 +45,7 @@
         <div class="row mb-3 mt-3">
             <div class="col-md-6 mb-3 mt-3">
                 <div class="">
-                    <img id="cadeira" class="img-fluid " src="" alt="imagem da cadeira">
+                    <img width="200" id="cadeira" class="img-fluid " src="" alt="imagem da cadeira">
                 </div>
             </div>
 

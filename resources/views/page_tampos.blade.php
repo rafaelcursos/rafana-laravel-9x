@@ -1,7 +1,7 @@
 @extends('layouts.pages')
 
 @section('content')
-    <div class="container body">
+    <div class="container-fluid body">
         <div class="row">
             <div class="col-12 mt-2">
                 <a onclick="limpar()" href="javascript:void(0)">
@@ -12,7 +12,7 @@
         <hr>
         <div class="row m-0">
 
-            <div class="col-lg-8">
+            <div class="col-lg-9 mb-5 m-0 p-0">
 
                 <h1>Personalize seu móvel!</h1>
 
@@ -23,37 +23,25 @@
 
             </div>
 
-            <div class="col-lg-4">
-
+            <div class="col-lg-3 ">
                 <div class="row ">
-
                     <div class="cards-container">
-
                         @foreach ($tampos as $t)
                             @foreach ($t->images as $image)
                                 <div onclick="trocatampo(`{{ Storage::url($image->image) }}`, `{{ $t->name }}`, `{{ $t->description }}`)"
                                     class="cards">
-
-                                    <div class="img-card">
-                                        <div class="col-6">
-                                            <img class="img-fluid" src="{{ Storage::url($image->image) }}" alt="">
-                                        </div>
-
-                                        <div class="col-6 info">
-                                            <h5>{{ $t->name }}</h5>
-                                        </div>
-
+                                    <div class="img-card ">
+                                        <img class="img-fluid" src="{{ Storage::url($image->image) }}" alt="">
                                     </div>
                                 </div>
                             @endforeach
                         @endforeach
-
                     </div>
-
                 </div>
-
             </div>
+
         </div>
+
         <a class="botao-pages" href="/page_cadeiras">Próximo</a>
     </div>
     </div>

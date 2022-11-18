@@ -21,7 +21,6 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script src="/js/main.js" defer></script>
 </head>
 
 <body style="background-color: #fff;">
@@ -31,6 +30,9 @@
         @yield('content')
     </main>
 
+
+    <script src="/js/jquery-3.6.1.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

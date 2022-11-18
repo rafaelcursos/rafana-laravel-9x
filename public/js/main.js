@@ -27,21 +27,22 @@ function trocabase(img, name, description){
     localStorage.setItem('imgBase', img);
     localStorage.setItem('nameBase', name);
     localStorage.setItem('descriptionBase', description);
-    document.location.reload(true);
+    base.setAttribute('src', img);
+
 }
 
 function trocatampo(img, name, description){
     localStorage.setItem('imgTampo', img);
     localStorage.setItem('nameTampo', name);
     localStorage.setItem('descriptionTampo', description);
-    document.location.reload(true);
+    tampo.setAttribute('src', img);
 }
 
 function trocacadeira(img, name, description){
     localStorage.setItem('imgCadeira', img);
     localStorage.setItem('nameCadeira', name);
     localStorage.setItem('descriptionCadeira', description);
-    document.location.reload(true);
+    cadeira.setAttribute('src', img);
 }
 
 if(imgBase){

@@ -31,7 +31,7 @@
                                 <div onclick="trocabase(`{{Storage::url($image->image)}}`, `{{ $b->name }}`, `{{ $b->description }}`)" class="cards">
                                     <div class="cards">
                                         <div class="img-card">
-                                            <img class="img-fluid" src="{{Storage::url($image->image) }}" alt="">
+                                            <img id="miniatura" class="img-fluid" src="{{Storage::url($image->image) }}" alt="">
                                         </div>
 
                                     </div>
@@ -48,4 +48,5 @@
         <a class="botao-pages" href="/page_tampos/{{ $id }}">Próximo</a>
     </div>
     </div>
+
 @endsection

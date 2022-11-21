@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-3 p-0">
                             <div class="cadeira-container">
-                                <img id="cadeira" class="img-fluid " src="" alt="imagem da cadeira">
+                                <img id="cadeira" class="img-fluid " src="{{ Storage::url($cadeira[0]->image)}}" alt="imagem da cadeira">
                             </div>
                         </div>
                     </div>
@@ -53,6 +53,7 @@
 
             </div>
         </div>
+        <a class="botao-voltar" href="#" onclick="window.history.back()" >voltar</a>
         <a class="botao-pages" href="/page_report">Próximo</a>
     </div>
 @endsection

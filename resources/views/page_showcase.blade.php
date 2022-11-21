@@ -12,14 +12,18 @@
     <hr>
     <div class="row">
         <h1>Personalize seu Móvel</h1>
+        <h3>Escolha um modelo abaixo!</h3>
 
         @foreach($showcase as $s)
 
-        <div class="col-lg-4">
+        <div class="col-lg-6">
             <a href="/page_bases/{{$s->id}}">
                 <div class="showcase-card">
                     <img class="img-fluid" src="{{Storage::url($s->image)}}" alt="{{$s->name}}">
-                    <h3>{{$s->name}}</h3>
+                    <div class="d-flex justify-content-around">
+                        <h3 class="d-flex align-items-center">{{$s->name}}</h3><h3><ion-icon name="arrow-forward-outline"></ion-icon></h3>
+                    </div>
+                    
                 </div>
             </a>
         </div>

@@ -42,6 +42,7 @@
 
         </div>
 
+        <a class="botao-voltar" href="#" onclick="window.history.back()" >voltar</a>
         <a class="botao-pages" href="/page_cadeiras">Próximo</a>
     </div>
     </div>

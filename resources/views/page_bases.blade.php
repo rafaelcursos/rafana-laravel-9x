@@ -18,6 +18,7 @@
                 <h1>Personalize seu móvel!</h1>
 
                 <div class="image-primary">
+                    <div style="height: 180px" class="area-tampo"></div>
                     <img id="base" class="img-fluid " src="/img/statics/base.gif" alt="imagem da base">
                 </div>
 
@@ -45,6 +46,7 @@
 
             </div>
         </div>
+        <a class="botao-voltar" href="#" onclick="window.history.back()" >voltar</a>
         <a class="botao-pages" href="/page_tampos/{{ $id }}">Próximo</a>
     </div>
     </div>

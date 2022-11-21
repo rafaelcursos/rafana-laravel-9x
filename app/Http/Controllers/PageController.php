@@ -50,8 +50,11 @@ class PageController extends Controller
 
     public function pagecadeiras(){
         $cadeiras = Product::where('type', '=', 'Cadeira')->get();
+        foreach($cadeiras as $c){
+            $cadeira = $c->images;
+        }
 
-        return view('/page_cadeiras', ['cadeiras' => $cadeiras]);
+        return view('/page_cadeiras', ['cadeiras' => $cadeiras, 'cadeira' => $cadeira]);
     }
 
     public function pagereport(){

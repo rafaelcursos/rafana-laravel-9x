@@ -91,6 +91,9 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
+    <script  src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>
 </body>
 
 </html>

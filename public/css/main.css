@@ -119,6 +119,26 @@ a {
     max-width: 950px;
     margin: auto;
 }
+@media (min-width: 991px){
+    .cadeira-container{
+        transform:  translateX(-130px);
+    }
+}
+@media (min-width: 882px){
+    .cadeira-container{
+        transform:  translateX(-120px);
+    }
+}
+@media (min-width: 582px){
+    .cadeira-container{
+        transform:  translateX(-110px);
+    }
+}
+@media (max-width: 582px){
+    .cadeira-container{
+        transform:  translateX(-50px);
+    }
+}
 
 @media(max-width: 991px) {
     .cards-container {
@@ -135,4 +155,5 @@ a {
         height: auto;
         overflow: scroll;
     }
+
 }

@@ -32,7 +32,7 @@ class PageController extends Controller
                 $base = $i->image;
             }
         }
-
+        
         return view('/page_bases', ['base' => $base, 'tampo' => $tampo, 'bases' => $bases, 'id' => $id]);
     }
 

@@ -18,6 +18,7 @@ Route::get('/painel', [App\Http\Controllers\HomeController::class, 'index'])->na
 //rota para trabalhar com os produtos showcase
 Route::get('/showcase_insert', [App\Http\Controllers\ShowcaseController::class, 'index'])->middleware('auth');
 Route::post('/showcase_insert', [App\Http\Controllers\ShowcaseController::class, 'store'])->middleware('auth');
+
 Route::get('/showcase_join/{id}', [App\Http\Controllers\ShowcaseController::class, 'join'])->middleware('auth');
 Route::post('/showcase_join', [App\Http\Controllers\ShowcaseController::class, 'joinStore'])->middleware('auth');
 Route::get('/showcase_remove/{show_id}/{product_id}', [App\Http\Controllers\ShowcaseController::class, 'removejoin'])->middleware('auth');
